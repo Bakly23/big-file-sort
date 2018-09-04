@@ -30,7 +30,12 @@ public class GenerateBigFile {
     }
 
     private static int generateRandom(int avg) {
-        return Math.max(1, avg + (int) (RANDOM.nextGaussian() * avg / 4));
+        int x = 1;
+        for(int i = 0; i < 2 * avg - 2; i++) {
+            if(Math.random() < 0.5)
+                x++;
+        }
+        return x;
     }
 
     private static String randomLine(int size) {
